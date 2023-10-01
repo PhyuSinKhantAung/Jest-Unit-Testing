@@ -41,10 +41,18 @@ test("John should be in usernames", () => {
   expect(usernames).toContain("John");
 });
 
+// promise
 test("This user name should be Leanne Graham", () => {
+  // if we dont use expect.assertion and return async function, it will just pass tho it passes or not
   // expect.assertions(1);
   return functions.fetchUser().then((data) => {
-    console.log(data);
     expect(data.name).toEqual("Leanne Graham");
   });
+});
+
+// async await
+test("This user name should be Leanne Graham", async () => {
+  // expect.assertions(1);
+  const data = await functions.fetchUser();
+  expect(data.name).toEqual("Leanne Graham");
 });

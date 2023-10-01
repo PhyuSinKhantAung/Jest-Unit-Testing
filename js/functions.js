@@ -13,12 +13,13 @@ const functions = {
     return user;
   },
 
-  fetchUser: async () => {
+  fetchUser: () =>
     axios
       .get("https://jsonplaceholder.typicode.com/users/1")
-      .then((res) => res.data)
-      .catch((err) => "error");
-  },
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => "error"),
 };
 
 module.exports = functions;
